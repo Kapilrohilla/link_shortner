@@ -51,13 +51,12 @@ export class AppService {
   }
 
   async deleteShortUrl(id: string) {
-    const isDeleted: null | url =
-      await this.shortUrlModel.findByIdAndDelete(id);
-
-    if (isDeleted === null) {
-      throw new HttpException('invalid Id', HttpStatus.BAD_REQUEST);
-    } else {
+    try {
+      const isDeleted: null | url =
+        await this.shortUrlModel.findByIdAndDelete(id);
       return isDeleted;
+    } catch (err) {
+      throw new HttpException('invalid Id', HttpStatus.BAD_REQUEST);
     }
   }
 }

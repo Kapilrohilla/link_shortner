@@ -1,20 +1,23 @@
 import mongoose from 'mongoose';
 
-export const urlSchema = new mongoose.Schema({
-  originalUrl: {
-    type: String,
-    required: true,
-    unique: true,
+export const urlSchema = new mongoose.Schema(
+  {
+    originalUrl: {
+      type: String,
+      required: true,
+      // unique: true,
+    },
+    shortId: {
+      type: String,
+      required: true,
+    },
+    count: {
+      type: Number,
+      default: 0,
+    },
   },
-  shortId: {
-    type: String,
-    required: true,
-  },
-  count: {
-    type: Number,
-    default: 0,
-  },
-});
+  { timestamps: true },
+);
 
 urlSchema.set('toJSON', {
   transform(_doc, ret) {
