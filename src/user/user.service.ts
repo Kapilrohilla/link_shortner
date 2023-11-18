@@ -26,8 +26,12 @@ export class UserService extends userServiceHelper {
     return await this.userModel.find({}).limit(limit);
   }
 
-  async getSpecificUser(id: string): Promise<user> {
-    return await this.userModel.findById(id).populate('shorturls');
+  async getSpecificUser(id: string): Promise<'invalid id' | user> {
+    try {
+      return await this.userModel.findById(id).populate('shorturls');
+    } catch (err) {
+      return 'invalid id';
+    }
   }
 
   async createUser(userDetail: user): Promise<string | user> {
