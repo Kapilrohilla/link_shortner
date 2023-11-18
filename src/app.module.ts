@@ -3,13 +3,13 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
-import { urlSchema } from './Schemas/url.schema';
 import { LoggerMiddleware } from './middleware/logger.middleware';
+import { UrlModule } from './url/url.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ envFilePath: '.env' }),
     MongooseModule.forRoot(process.env.MONGODB_URI),
-    MongooseModule.forFeature([{ name: 'shorturl', schema: urlSchema }]),
+    UrlModule,
   ],
   controllers: [AppController],
   providers: [AppService],
