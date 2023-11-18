@@ -65,7 +65,7 @@ export class UrlController {
     description: 'Record created successfully',
   })
   @ApiBadRequestResponse({
-    description: 'Invalid URL in body requestBody',
+    description: 'Invalid URL in requestBody',
   })
   @Post()
   async createShortUrl(@Body() createShortIdDto: createShortIdDto) {
@@ -76,13 +76,13 @@ export class UrlController {
     return response;
   }
   @ApiOkResponse({
-    description: 'Delete operation successful!',
+    description: 'Url deleted successfully!',
     isArray: false,
   })
   @ApiBadRequestResponse({
     description: 'Invalid Id',
   })
-  @ApiParam({ name: 'id' })
+  @ApiParam({ name: 'id', required: true })
   @Delete(':id')
   async deleteShortUrl(@Param('id') id) {
     const isDeleted = await this.urlService.deleteShortUrl(id);

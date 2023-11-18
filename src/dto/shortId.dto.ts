@@ -6,6 +6,6 @@ export class createShortIdDto {
     type: String,
     example: 'https://google.in',
   })
-  @ApiProperty()
+  // @ApiProperty()
   originalUrl: string;
 }
