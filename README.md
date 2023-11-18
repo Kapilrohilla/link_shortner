@@ -1,4 +1,4 @@
-# Link Shortner
+# Link Shortner (NestJs)
 
 A simple web app that allows users to shorten long URLs to share them easily
 
@@ -9,7 +9,8 @@ This project is currently under progress.
 #### TODO
 
 - [x] Link Routes
-- [ ] User routes
+- [x] User routes
+- [ ] Auth Routes
 - [ ] FrontEnd
 - [ ] Deploy (Failed to deploy on vercel as free account limit exceed)
 
