@@ -9,10 +9,6 @@ import { url } from 'src/interface/url.interface';
 export class UrlServices {
   constructor(@InjectModel('urls') private urlModel: Model<url>) {}
 
-  working() {
-    return 'working fine!';
-  }
-
   async getAllUrl() {
     const limit = 20;
     return await this.urlModel.find().limit(limit);

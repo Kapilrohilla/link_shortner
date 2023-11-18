@@ -28,14 +28,6 @@ import { createShortIdDto } from 'src/dto/shortId.dto';
 export class UrlController {
   constructor(private readonly urlService: UrlServices) {}
   @ApiOkResponse({
-    description: 'The Api is working fine!',
-    isArray: true,
-  })
-  @Get('/ping')
-  isWorking() {
-    return this.urlService.working();
-  }
-  @ApiOkResponse({
     description: 'Give maximum 20 records from database',
     isArray: true,
   })
