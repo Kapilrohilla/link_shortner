@@ -5,3 +5,8 @@ export interface user {
 
   password: string;
 }
+
+export interface responseUserData extends user {
+  _id: string;
+  hash: string;
+}
